@@ -29,8 +29,8 @@ if [ -z $Qual2 ]; then
 fi
 
 #Set filenames from output of youtube-dl
-File1=$(./youtube-dl --get-filename -f $Qual1 $URL)
-File2=$(./youtube-dl --get-filename -f $Qual2 $URL)
+File1=$(./youtube-dl --get-filename -f $Qual1 $URL | iconv -f WINDOWS-1252 -t UTF-8)
+File2=$(./youtube-dl --get-filename -f $Qual2 $URL | iconv -f WINDOWS-1252 -t UTF-8)
 echo $File1
 echo $File2
 Out=${File1:0:${#File1}-16}".mp4"
@@ -62,7 +62,7 @@ File2=$File2New
 echo
 echo "Combining Audio and Video files with FFMpeg"
 #C:/Users/Adam/Downloads/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
-C:/Users/Adam/Downloads/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
+C:/Applications/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if [[ -f $Out ]]; then
   echo
   echo "File" $Out "created"
