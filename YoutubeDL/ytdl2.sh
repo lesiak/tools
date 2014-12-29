@@ -40,6 +40,7 @@ echo $Out
 
 
 #Download Video and Audio files and merge witf ffmpeg
+#./youtube-dl --verbose -f $Qual1+$Qual2 $URL
 ./youtube-dl -f $Qual1+$Qual2 $URL
 if [[ -f $Out ]]; then
   echo
