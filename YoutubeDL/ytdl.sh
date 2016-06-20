@@ -3,8 +3,7 @@
 #Written by QuidsUp
 #Edited by Christoph Korn
 
-File1New=video.mp4
-File2New=audio.m4a
+
 
 URL=$1
 if [ -z $URL ]; then
@@ -33,8 +32,17 @@ File1=$(./youtube-dl --get-filename -f $Qual1 $URL | iconv -f WINDOWS-1252 -t UT
 File2=$(./youtube-dl --get-filename -f $Qual2 $URL | iconv -f WINDOWS-1252 -t UTF-8)
 echo "File1: $File1"
 echo "File2: $File2"
-Out=${File1:0:${#File1}-16}".mp4"
+File1Extension=$(echo "$File1" | sed 's/^.*\.//')
+File2Extension=$(echo "$File2" | sed 's/^.*\.//')
+
+echo "File1Extension: $File1Extension"
+echo "File2Extension: $File2Extension"
+
+Out=${File1:0:${#File1}-16}".$File1Extension"
 echo "Out: $Out"
+
+File1New="video_new${File1Extension}"
+File2New="audio_new${File2Extension}"
 
 #Download Video file with First Quality Setting
 ./youtube-dl -f $Qual1 $URL
