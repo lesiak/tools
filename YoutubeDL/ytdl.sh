@@ -31,10 +31,10 @@ fi
 #Set filenames from output of youtube-dl
 File1=$(./youtube-dl --get-filename -f $Qual1 $URL | iconv -f WINDOWS-1252 -t UTF-8)
 File2=$(./youtube-dl --get-filename -f $Qual2 $URL | iconv -f WINDOWS-1252 -t UTF-8)
-echo $File1
-echo $File2
+echo "File1: $File1"
+echo "File2: $File2"
 Out=${File1:0:${#File1}-16}".mp4"
-echo $Out
+echo "Out: $Out"
 
 #Download Video file with First Quality Setting
 ./youtube-dl -f $Qual1 $URL
@@ -43,6 +43,7 @@ if [[ ! -f $File1 ]]; then
   echo "Error video file not downloaded"
   exit
 fi
+echo "Moving video to $File1New"
 mv "$File1" "$File1New"
 
 #Download Audio file with Second Quality Setting
@@ -52,6 +53,7 @@ if [[ ! -f $File2 ]]; then
   echo "Error audio file not downloaded"
   exit
 fi
+echo "Moving audio to $File2New"
 mv "$File2" "$File2New"
 
 File1=$File1New
@@ -62,6 +64,7 @@ File2=$File2New
 echo
 echo "Combining Audio and Video files with FFMpeg"
 #C:/Users/Adam/Downloads/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
+echo "Running C:/Applications/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
 C:/Applications/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if [[ -f $Out ]]; then
   echo
@@ -73,6 +76,6 @@ else
 fi
 
 #Remove old Files
-rm "$File1"
-rm "$File2"
+#rm "$File1"
+#rm "$File2"
 
