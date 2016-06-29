@@ -1,0 +1,38 @@
+@media print {
+/*** Display images ***/
+  .story-body figure {    
+    display: block !important;    
+    border-bottom: 1px solid #e2e2e2;    
+    padding-bottom: 6px;    
+    margin-bottom: 2px !important;
+  }
+  div.image {    
+    display: block !important;
+  }
+/*** Reduce space on top ***/
+  #shell {    
+    padding-top: 0px !important;
+  }
+  #masthead {    
+    margin-top: 0px;
+  }
+/*** Reduce title margin ***/
+  .story-meta {    
+    margin-left: 0 !important;
+  }
+/*** Remove margin around main story ***/
+  .story.theme-main .story-body {    
+    margin: 0 0 0 0 !important;
+  }
+/*** Remove text indentation ***/
+  p.story-body-text.story-content {    
+    text-indent: 0 !important;
+  }
+}
+
+/*** 2 columns in main story ***/
+
+.story-body-supplemental {
+    column-count: 2;
+}
+
