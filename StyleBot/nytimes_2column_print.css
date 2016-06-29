@@ -9,6 +9,10 @@
   div.image {    
     display: block !important;
   }
+/*** But do not display promo ***/
+  figure#opinion-newsletter-promo {    
+    display: none !important;
+  }
 /*** Reduce space on top ***/
   #shell {    
     padding-top: 0px !important;
