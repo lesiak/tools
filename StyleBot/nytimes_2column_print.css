@@ -24,9 +24,13 @@
   .story.theme-main .story-body {    
     margin: 0 0 0 0 !important;
   }
-/*** Remove text indentation ***/
+/*** Reduce text indentation ***/
   p.story-body-text.story-content {    
-    text-indent: 0 !important;
+    text-indent: 1em !important;
+  }
+/*** Reduce margins between paragraphs ***/
+  p, ul, ol, dl, dd {    
+    margin: 0 0 0.2em 0 !important;
   }
 }
 
