@@ -18,7 +18,12 @@
     padding-top: 0px !important;
   }
   #masthead {    
-    margin-top: 0px;
+    margin-top: 0px;    
+    padding-bottom: 0.1in;    
+    margin-bottom: 0.1in;
+  }
+  .kicker {    
+    margin-bottom: 0.1in;
   }
 /*** Reduce title margin ***/
   .story-meta {    
@@ -39,7 +44,6 @@
 }
 
 /*** 2 columns in main story ***/
-
 .story-body-supplemental {
     column-count: 2;
 }
