@@ -41,28 +41,28 @@ echo "File2Extension: $File2Extension"
 Out=${File1:0:${#File1}-16}".$File1Extension"
 echo "Out: $Out"
 
-File1New="video_new${File1Extension}"
-File2New="audio_new${File2Extension}"
+File1New="video_new.${File1Extension}"
+File2New="audio_new.${File2Extension}"
 
 #Download Video file with First Quality Setting
-./youtube-dl -f $Qual1 $URL
-if [[ ! -f $File1 ]]; then
+./youtube-dl -f $Qual1 --output "$File1New" $URL
+if [[ ! -f $File1New ]]; then
   echo
   echo "Error video file not downloaded"
   exit
 fi
-echo "Moving video to $File1New"
-mv "$File1" "$File1New"
+#echo "Moving video to $File1New"
+#mv "$File1" "$File1New"
 
 #Download Audio file with Second Quality Setting
-./youtube-dl -f $Qual2 $URL
-if [[ ! -f $File2 ]]; then
+./youtube-dl -f $Qual2 --output "$File2New" $URL
+if [[ ! -f $File2New ]]; then
   echo
   echo "Error audio file not downloaded"
   exit
 fi
-echo "Moving audio to $File2New"
-mv "$File2" "$File2New"
+#echo "Moving audio to $File2New"
+#mv "$File2" "$File2New"
 
 File1=$File1New
 File2=$File2New
