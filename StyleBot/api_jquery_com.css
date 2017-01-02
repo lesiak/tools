@@ -1,0 +1,20 @@
+#global-nav {
+    display: none;
+}
+
+#logo-events {
+    display: none;
+}
+
+nav#main {
+    display: none;
+}
+
+div#sidebar {
+    display: none;
+}
+
+div#content {
+    width: 100%;
+}
+
