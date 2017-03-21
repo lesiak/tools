@@ -45,24 +45,24 @@ File1New="video_new.${File1Extension}"
 File2New="audio_new.${File2Extension}"
 
 #Download Video file with First Quality Setting
-./youtube-dl -f $Qual1 --output "$File1New" $URL
-if [[ ! -f $File1New ]]; then
+./youtube-dl -f $Qual1 --output "$File1" $URL
+if [[ ! -f $File1 ]]; then
   echo
   echo "Error video file not downloaded"
   exit
 fi
-#echo "Moving video to $File1New"
-#mv "$File1" "$File1New"
+echo "Moving video to $File1New"
+mv "$File1" "$File1New"
 
 #Download Audio file with Second Quality Setting
-./youtube-dl -f $Qual2 --output "$File2New" $URL
-if [[ ! -f $File2New ]]; then
+./youtube-dl -f $Qual2 --output "$File2" $URL
+if [[ ! -f $File2 ]]; then
   echo
   echo "Error audio file not downloaded"
   exit
 fi
-#echo "Moving audio to $File2New"
-#mv "$File2" "$File2New"
+echo "Moving audio to $File2New"
+mv "$File2" "$File2New"
 
 File1=$File1New
 File2=$File2New
@@ -72,8 +72,8 @@ File2=$File2New
 echo
 echo "Combining Audio and Video files with FFMpeg"
 #C:/Users/Adam/Downloads/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
-echo "Running C:/Applications/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
-C:/Applications/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
+echo "Running C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
+C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if [[ -f $Out ]]; then
   echo
   echo "File" $Out "created"
