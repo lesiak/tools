@@ -12,7 +12,7 @@ if [ -z $URL ]; then
 fi
 
 #Find what quality of videos are available
-./youtube-dl -F $URL
+./youtube-dl.exe -F $URL
 echo
 echo -n "Quality for Video (default 137): "
 read Qual1
@@ -73,7 +73,7 @@ echo
 echo "Combining Audio and Video files with FFMpeg"
 #C:/Users/Adam/Downloads/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
 echo "Running C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
-C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
+C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg.exe -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if [[ -f $Out ]]; then
   echo
   echo "File" $Out "created"
