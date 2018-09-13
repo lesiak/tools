@@ -16,7 +16,7 @@ fi
 echo
 echo -n "Quality for Video (default 137): "
 read Qual1
-echo -n "Quality for Audio (default 141): "
+echo -n "Quality for Audio (default 140): "
 read Qual2
 
 #Set values if user has just pressed Return without typing anything
@@ -24,7 +24,7 @@ if [ -z $Qual1 ]; then
   Qual1="137"
 fi
 if [ -z $Qual2 ]; then
-  Qual2="141"
+  Qual2="140"
 fi
 
 #Set filenames from output of youtube-dl
