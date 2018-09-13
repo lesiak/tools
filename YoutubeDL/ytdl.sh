@@ -28,8 +28,8 @@ if [ -z $Qual2 ]; then
 fi
 
 #Set filenames from output of youtube-dl
-File1=$(./youtube-dl --get-filename -f $Qual1 $URL | iconv -f WINDOWS-1252 -t UTF-8)
-File2=$(./youtube-dl --get-filename -f $Qual2 $URL | iconv -f WINDOWS-1252 -t UTF-8)
+File1=$(./youtube-dl.exe --get-filename -f $Qual1 --encoding UTF-8 $URL)
+File2=$(./youtube-dl.exe --get-filename -f $Qual2 --encoding UTF-8 $URL)
 echo "File1: $File1"
 echo "File2: $File2"
 File1Extension=$(echo "$File1" | sed 's/^.*\.//')
