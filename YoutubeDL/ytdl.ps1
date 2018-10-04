@@ -50,21 +50,21 @@ $File2New="audio_new${File2Extension}"
 
 # Download Video file with First Quality Setting
 ./youtube-dl -f $Qual1 --output "$File1" $YouTubeUrl
-if (-not (Test-Path $File1)) { 
+if (-not (Test-Path -LiteralPath $File1)) { 
   Write-Host "Error video file not downloaded"
   Exit
 }
 Write-Host "Moving video to $File1New" -ForegroundColor DarkGreen
-Move-Item -Path $File1 -Destination $File1New -Force
+Move-Item -LiteralPath $File1 -Destination $File1New -Force
 
 #Download Audio file with Second Quality Setting
 ./youtube-dl -f $Qual2 --output "$File2" $YouTubeUrl
-if (-not (Test-Path $File2)) { 
+if (-not (Test-Path -LiteralPath $File2)) { 
   Write-Host "Error audio file not downloaded"
   Exit
 }
 Write-Host "Moving audio to $File2New" -ForegroundColor DarkGreen
-Move-Item -Path $File2 -Destination $File2New -Force
+Move-Item -LiteralPath $File2 -Destination $File2New -Force
 
 $File1=$File1New
 $File2=$File2New
