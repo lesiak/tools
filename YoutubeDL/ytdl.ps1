@@ -73,9 +73,9 @@ $File2=$File2New
 #Delete -threads 0 if you have a Single Core CPU
 
 Write-Host "Combining Audio and Video files with FFMpeg" -ForegroundColor DarkGreen
-#C:/Users/Adam/Downloads/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
-Write-Host "Running C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
-C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg.exe -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
+#ffmpeg.exe -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
+Write-Host "Running $((Get-Command ffmpeg.exe).Path) -i $File1 -i $File2 -c:v copy -c:a copy $Out"
+ffmpeg.exe -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if (Test-Path $Out) { 
   Write-Host "File" $Out "created" -ForegroundColor DarkGreen
   Exit
