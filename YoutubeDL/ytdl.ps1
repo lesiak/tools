@@ -16,7 +16,7 @@ $OutputEncoding = New-Object -typename System.Text.UTF8Encoding
 #[Console]::WriteLine('aaa Лимонад')
 #Write-Host 'ccc Лимонад'
 #Find what quality of videos are available
-./youtube-dl -F $YouTubeUrl
+youtube-dl -F $YouTubeUrl
 Write-Host
 $Qual1 = (read-host "Quality for Video (default 137): ").trim()
 $Qual2 = (read-host "Quality for Video (default 140): ").trim()
@@ -29,8 +29,8 @@ if ([string]::IsNullOrWhiteSpace($Qual1)) {
 if ([string]::IsNullOrWhiteSpace($Qual2)) {
   $Qual2 = '140'
 }
-$File1=./youtube-dl --get-filename -f $Qual1 --encoding UTF-8 $YouTubeUrl
-$File2=./youtube-dl --get-filename -f $Qual2 --encoding UTF-8 $YouTubeUrl
+$File1=youtube-dl --get-filename -f $Qual1 --encoding UTF-8 $YouTubeUrl
+$File2=youtube-dl --get-filename -f $Qual2 --encoding UTF-8 $YouTubeUrl
 
 Write-Host "File1: $File1" -ForegroundColor DarkGreen
 Write-Host "File1: $File2" -ForegroundColor DarkGreen
@@ -49,7 +49,7 @@ $File1New="video_new${File1Extension}"
 $File2New="audio_new${File2Extension}"
 
 # Download Video file with First Quality Setting
-./youtube-dl -f $Qual1 --output "$File1" $YouTubeUrl
+youtube-dl -f $Qual1 --output "$File1" $YouTubeUrl
 if (-not (Test-Path -LiteralPath $File1)) { 
   Write-Host "Error video file not downloaded"
   Exit
@@ -58,7 +58,7 @@ Write-Host "Moving video to $File1New" -ForegroundColor DarkGreen
 Move-Item -LiteralPath $File1 -Destination $File1New -Force
 
 #Download Audio file with Second Quality Setting
-./youtube-dl -f $Qual2 --output "$File2" $YouTubeUrl
+youtube-dl -f $Qual2 --output "$File2" $YouTubeUrl
 if (-not (Test-Path -LiteralPath $File2)) { 
   Write-Host "Error audio file not downloaded"
   Exit
@@ -77,7 +77,7 @@ Write-Host "Combining Audio and Video files with FFMpeg" -ForegroundColor DarkGr
 Write-Host "Running $((Get-Command ffmpeg).Path) -i $File1 -i $File2 -c:v copy -c:a copy $Out"
 ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if (Test-Path $Out) { 
-  Write-Host "File" $Out "created" -ForegroundColor DarkGreen
+  Write-Host "Created: $Out" -ForegroundColor DarkGreen
   Exit
 } else {
   Write-Host "Error Unable to combine Audio and Video files with FFMpeg"
