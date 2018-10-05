@@ -16,7 +16,7 @@ $OutputEncoding = New-Object -typename System.Text.UTF8Encoding
 #[Console]::WriteLine('aaa Лимонад')
 #Write-Host 'ccc Лимонад'
 #Find what quality of videos are available
-./youtube-dl.exe -F $YouTubeUrl
+./youtube-dl -F $YouTubeUrl
 Write-Host
 $Qual1 = (read-host "Quality for Video (default 137): ").trim()
 $Qual2 = (read-host "Quality for Video (default 140): ").trim()
@@ -29,8 +29,8 @@ if ([string]::IsNullOrWhiteSpace($Qual1)) {
 if ([string]::IsNullOrWhiteSpace($Qual2)) {
   $Qual2 = '140'
 }
-$File1=./youtube-dl.exe --get-filename -f $Qual1 --encoding UTF-8 $YouTubeUrl
-$File2=./youtube-dl.exe --get-filename -f $Qual2 --encoding UTF-8 $YouTubeUrl
+$File1=./youtube-dl --get-filename -f $Qual1 --encoding UTF-8 $YouTubeUrl
+$File2=./youtube-dl --get-filename -f $Qual2 --encoding UTF-8 $YouTubeUrl
 
 Write-Host "File1: $File1" -ForegroundColor DarkGreen
 Write-Host "File1: $File2" -ForegroundColor DarkGreen
@@ -73,9 +73,9 @@ $File2=$File2New
 #Delete -threads 0 if you have a Single Core CPU
 
 Write-Host "Combining Audio and Video files with FFMpeg" -ForegroundColor DarkGreen
-#ffmpeg.exe -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
-Write-Host "Running $((Get-Command ffmpeg.exe).Path) -i $File1 -i $File2 -c:v copy -c:a copy $Out"
-ffmpeg.exe -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
+#ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
+Write-Host "Running $((Get-Command ffmpeg).Path) -i $File1 -i $File2 -c:v copy -c:a copy $Out"
+ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if (Test-Path $Out) { 
   Write-Host "File" $Out "created" -ForegroundColor DarkGreen
   Exit
