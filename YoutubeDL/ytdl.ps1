@@ -33,7 +33,7 @@ $File1=youtube-dl --get-filename -f $Qual1 --encoding UTF-8 $YouTubeUrl
 $File2=youtube-dl --get-filename -f $Qual2 --encoding UTF-8 $YouTubeUrl
 
 Write-Host "File1: $File1" -ForegroundColor DarkGreen
-Write-Host "File1: $File2" -ForegroundColor DarkGreen
+Write-Host "File2: $File2" -ForegroundColor DarkGreen
 
 $File1Extension=[System.IO.Path]::GetExtension($File1)
 $File2Extension=[System.IO.Path]::GetExtension($File2)
