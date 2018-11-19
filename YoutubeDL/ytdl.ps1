@@ -35,6 +35,17 @@ $File2=youtube-dl --get-filename -f $Qual2 --encoding UTF-8 $YouTubeUrl
 Write-Host "File1: $File1" -ForegroundColor DarkGreen
 Write-Host "File2: $File2" -ForegroundColor DarkGreen
 
+if ([string]::IsNullOrWhiteSpace($File1)) {
+  Write-Host "Error: Cant get video file name" -ForegroundColor Red
+  Exit
+}
+
+if ([string]::IsNullOrWhiteSpace($File2)) {
+  Write-Host "Error: Cant get audio file name" -ForegroundColor Red
+  Exit
+}
+
+
 $File1Extension=[System.IO.Path]::GetExtension($File1)
 $File2Extension=[System.IO.Path]::GetExtension($File2)
 
