@@ -87,7 +87,7 @@ Write-Host "Combining Audio and Video files with FFMpeg" -ForegroundColor DarkGr
 #ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
 Write-Host "Running $((Get-Command ffmpeg).Path) -i $File1 -i $File2 -c:v copy -c:a copy $Out"
 ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
-if (Test-Path $Out) { 
+if (Test-Path -LiteralPath $Out) { 
   Write-Host "Created: $Out" -ForegroundColor DarkGreen
   Exit
 } else {
