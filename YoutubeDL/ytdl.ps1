@@ -91,7 +91,7 @@ if (Test-Path $Out) {
   Write-Host "Created: $Out" -ForegroundColor DarkGreen
   Exit
 } else {
-  Write-Host "Error Unable to combine Audio and Video files with FFMpeg"
+  Write-Host "Error Unable to combine Audio and Video files with FFMpeg" -ForegroundColor Red
   Exit
 }
 
