@@ -1,14 +1,19 @@
+@media (prefers-color-scheme: dark) {
+  body.theme-system {
+    --white: #141422;
+    --blue-500: #e65425;
+    --blue-600: #ceb8a1;
+    --blue-700: #ceb8a1;
+    --powder-700: #ceb8a1;
+  }
+}
+
 body {
   letter-spacing: .2px;
-  background: #0d0d0d;
 }
 
 .post-tag {
   background: #242a33 !important;
-}
-
-.s-btn__primary {
-  color: white !important;
 }
 
 #wmd-input {
@@ -18,28 +23,6 @@ body {
 p {
   color: #c4c4c4;
 }
-
-#content a {
-  color: #ceb8a1;
-}
-
-#content .s-btn__primary {
-  color: #d6dfdf;
-  background-color: #e65425;
-  border: 1px solid #e6542b;
-}
-
-/*.question-summary a, .question a, .answer a {
-  color: #ceb8a1;
-}
-
- .question-hyperlink, .answer-hyperlink {
-  color: #ceb8a1;
-}
-
-.post-tag {
-   color: #ceb8a1;
-} */
 
 #content a:hover {
   color: #c89862;
