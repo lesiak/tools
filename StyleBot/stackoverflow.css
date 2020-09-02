@@ -23,6 +23,24 @@ p {
   color: #ceb8a1;
 }
 
+#content .s-btn__primary {
+  color: #d6dfdf;
+  background-color: #e65425;
+  border: 1px solid #e6542b;
+}
+
+/*.question-summary a, .question a, .answer a {
+  color: #ceb8a1;
+}
+
+ .question-hyperlink, .answer-hyperlink {
+  color: #ceb8a1;
+}
+
+.post-tag {
+   color: #ceb8a1;
+} */
+
 #content a:hover {
   color: #c89862;
 }
