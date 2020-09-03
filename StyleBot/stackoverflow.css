@@ -7,36 +7,37 @@
     --blue-700: #ceb8a1;
     --powder-700: #ceb8a1;
   }
-}
 
-body {
-  letter-spacing: .2px;
-}
+  body {
+    letter-spacing: .2px;
+  }
 
-.post-tag {
-  background: #242a33 !important;
-}
+  .post-tag {
+    background: #242a33 !important;
+  }
 
-#wmd-input {
-  background: #0d0d0d !important;
-}
+  #wmd-input {
+    background: #0d0d0d !important;
+  }
 
-p {
-  color: #c4c4c4;
-}
+  p {
+    color: #c4c4c4;
+  }
 
-#content a:hover {
-  color: #c89862;
-}
+  #content a:hover {
+    color: #c89862;
+  }
 
-pre, code {
-  background: #111 !important;
-}
+  pre, code {
+    background: #111 !important;
+  }
 
-.s-sidebarwidget__yellow {
-  background: #201f13 !important;
-}
+  .s-sidebarwidget__yellow {
+    background: #201f13 !important;
+  }
 
-.answer-votes.answered-accepted {
-  background: #2b774d !important;
+  .answer-votes.answered-accepted {
+    background: #2b774d !important;
+  }
+
 }
