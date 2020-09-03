@@ -1,6 +1,7 @@
 @media (prefers-color-scheme: dark) {
   body.theme-system {
     --white: #141422;
+    --black-025: #262633;
     --blue-500: #e65425;
     --blue-600: #ceb8a1;
     --blue-700: #ceb8a1;
@@ -30,10 +31,6 @@ p {
 
 pre, code {
   background: #111 !important;
-}
-
-.top-bar, #content {
-  background: #171717;
 }
 
 .s-sidebarwidget__yellow {
