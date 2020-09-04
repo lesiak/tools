@@ -3,7 +3,8 @@ body {
   color: #d0d0d2;
 }
 
-.sidebar--content---4z0-, .sidebar--header--1C0Qx {
+/************** sidebar **************/
+.sidebar--content---4z0-, .sidebar--header--1C0Qx, .section--section-heading--2k6aW {
   background-color: #141422;
 }
 
@@ -12,13 +13,14 @@ body {
 }
 
 .curriculum-item-link--curriculum-item--KX9MD.curriculum-item-link--is-current--31BPo>.item-link {
-  background-color: #262633;
+  background-color: darkslateblue;
 }
 
 .udlite-in-udheavy {
   color: #d0d0d2;
 }
 
+/************** borders **************/
 .tabs--tabs-container--3KpSm .tabs--tabs-nav-buttons--1S7wK {
   box-shadow: inset 0 -1px 0 0 darkgrey;
 }
