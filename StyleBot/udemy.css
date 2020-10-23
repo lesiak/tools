@@ -4,16 +4,26 @@ body {
 }
 
 /************** sidebar **************/
-.sidebar--content---4z0-, .sidebar--header--1C0Qx, .section--section-heading--2k6aW {
+.sidebar--content---4z0-,
+.sidebar--header--1C0Qx,
+.section--section-heading--2k6aW {
   background-color: #141422;
 }
 
-.curriculum-item-link--curriculum-item--KX9MD>.item-link {
+.curriculum-item-link--curriculum-item--KX9MD > .item-link {
   color: #d0d0d2;
 }
 
-.curriculum-item-link--curriculum-item--KX9MD.curriculum-item-link--is-current--31BPo>.item-link {
+.curriculum-item-link--curriculum-item--KX9MD > .item-link:hover {
+  background: olive;
+}
+
+.curriculum-item-link--curriculum-item--KX9MD.curriculum-item-link--is-current--31BPo > .item-link {
   background-color: darkslateblue;
+}
+
+.udlite-heading-md.sidebar--course-content-text--1-32R {
+  background-color: olive;
 }
 
 .udlite-in-udheavy {
@@ -26,7 +36,7 @@ body {
 }
 
 .section--section--BukKG {
-  border-bottom: 1px solid darkgrey
+  border-bottom: 1px solid darkgrey;
 }
 
 .sidebar--content---4z0- {
