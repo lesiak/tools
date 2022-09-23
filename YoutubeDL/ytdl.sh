@@ -31,14 +31,18 @@ File1=$(yt-dlp --get-filename -f $Qual1 --encoding UTF-8 $YouTubeUrl)
 File2=$(yt-dlp --get-filename -f $Qual2 --encoding UTF-8 $YouTubeUrl)
 echo -e "${GREEN}File1: $File1${COLOR_OFF}"
 echo -e "${GREEN}File2: $File2${COLOR_OFF}"
-File1Extension=$(echo "$File1" | sed 's/^.*\.//')
-File2Extension=$(echo "$File2" | sed 's/^.*\.//')
+
+# Extract extensions:
+# https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+File1Extension="${File1##*.}"
+File2Extension="${File2##*.}"
 
 echo "File1Extension: $File1Extension"
 echo "File2Extension: $File2Extension"
 
-Out=${File1:0:${#File1}-14}".$File1Extension" #drop last 14 characters
-echo "Out: $Out"
+FileName="${File1%.*}"
+Out=${FileName:0:${#FileName}-14}".$File1Extension" #drop last 14 characters
+echo -e "${GREEN}Out: $Out${COLOR_OFF}"
 
 File1New="video_new.${File1Extension}"
 File2New="audio_new.${File2Extension}"
@@ -70,12 +74,12 @@ File2=$File2New
 #Delete -threads 0 if you have a Single Core CPU
 echo
 echo "Combining Audio and Video files with FFMpeg"
-#C:/Users/Adam/Downloads/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
+#ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
 echo "Running ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
 ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if [[ -f $Out ]]; then
   echo
-  echo "File" $Out "created"
+  echo -e "${GREEN}Created: $Out${COLOR_OFF}"
 else
   echo
   echo "Error Unable to combine Audio and Video files with FFMpeg"
