@@ -1,18 +1,17 @@
 #!/bin/bash
-#Youtube-DL DASH Video and Audio merging script
-#Written by QuidsUp
-#Edited by Christoph Korn
 
+COLOR_OFF='\033[0m'       # Text Reset
+RED='\033[0;31m'          # Red
+GREEN='\033[0;32m'        # Green
 
-
-URL=$1
-if [ -z $URL ]; then
+YouTubeUrl=$1
+if [ -z $YouTubeUrl ]; then
   echo "Usage: ytdl.sh url"
   exit
 fi
 
 #Find what quality of videos are available
-./youtube-dl.exe -F $URL
+yt-dlp -F $YouTubeUrl
 echo
 echo -n "Quality for Video (default 137): "
 read Qual1
@@ -28,24 +27,24 @@ if [ -z $Qual2 ]; then
 fi
 
 #Set filenames from output of youtube-dl
-File1=$(./youtube-dl.exe --get-filename -f $Qual1 --encoding UTF-8 $URL)
-File2=$(./youtube-dl.exe --get-filename -f $Qual2 --encoding UTF-8 $URL)
-echo "File1: $File1"
-echo "File2: $File2"
+File1=$(yt-dlp --get-filename -f $Qual1 --encoding UTF-8 $YouTubeUrl)
+File2=$(yt-dlp --get-filename -f $Qual2 --encoding UTF-8 $YouTubeUrl)
+echo -e "${GREEN}File1: $File1${COLOR_OFF}"
+echo -e "${GREEN}File2: $File2${COLOR_OFF}"
 File1Extension=$(echo "$File1" | sed 's/^.*\.//')
 File2Extension=$(echo "$File2" | sed 's/^.*\.//')
 
 echo "File1Extension: $File1Extension"
 echo "File2Extension: $File2Extension"
 
-Out=${File1:0:${#File1}-16}".$File1Extension"
+Out=${File1:0:${#File1}-14}".$File1Extension" #drop last 14 characters
 echo "Out: $Out"
 
 File1New="video_new.${File1Extension}"
 File2New="audio_new.${File2Extension}"
 
 #Download Video file with First Quality Setting
-./youtube-dl -f $Qual1 --output "$File1" $URL
+yt-dlp -f $Qual1 --output "$File1" $YouTubeUrl
 if [[ ! -f $File1 ]]; then
   echo
   echo "Error video file not downloaded"
@@ -55,7 +54,7 @@ echo "Moving video to $File1New"
 mv "$File1" "$File1New"
 
 #Download Audio file with Second Quality Setting
-./youtube-dl -f $Qual2 --output "$File2" $URL
+yt-dlp -f $Qual2 --output "$File2" $YouTubeUrl
 if [[ ! -f $File2 ]]; then
   echo
   echo "Error audio file not downloaded"
@@ -72,8 +71,8 @@ File2=$File2New
 echo
 echo "Combining Audio and Video files with FFMpeg"
 #C:/Users/Adam/Downloads/ffmpeg-latest-win32-static/ffmpeg-20140919-git-33c752b-win32-static/bin/ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
-echo "Running C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
-C:/Applications/ffmpeg-3.2.4-win32-static/bin/ffmpeg.exe -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
+echo "Running ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
+ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
 if [[ -f $Out ]]; then
   echo
   echo "File" $Out "created"
