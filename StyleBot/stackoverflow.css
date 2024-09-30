@@ -4,17 +4,14 @@ body.unified-theme,body.unified-theme * {
   --theme-button-color: #ceb8a1;
   --theme-button-primary-background-color: #e65425;
   letter-spacing: .2px;
+  --theme-body-font-color: #c4c4c4;
    --theme-tag-color: #ceb8a1; 
-}
-
-
-p {
-  color: #c4c4c4;
 }
 
 #content a:hover {
   color: #c89862;
 }
+
 
 pre, code {
   background: #111 !important;
