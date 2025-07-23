@@ -1,0 +1,19 @@
+font-family = "Berkeley Mono"
+font-size = 16
+
+theme = rose-pine
+
+#theme = tokyonight-storm 
+#background = 000000
+#foreground = ffffff
+
+window-padding-x = 10
+window-padding-y = 10
+
+background-opacity = 0.90
+background-blur-radius = 40
+
+cursor-style = block
+cursor-style-blink = false
+#cursor-invert-fg-bg = true
+#shell-integration-features = no-cursor
