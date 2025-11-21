@@ -215,6 +215,11 @@
         <option name="FOREGROUND" value="bcbec4" />
       </value>
     </option>
+    <option name="DEFAULT_CLASS_NAME">
+      <value>
+        <option name="FOREGROUND" value="9ccfd8" />
+      </value>
+    </option>
     <option name="DEFAULT_CLASS_REFERENCE">
       <value>
         <option name="FOREGROUND" value="bcbec4" />
