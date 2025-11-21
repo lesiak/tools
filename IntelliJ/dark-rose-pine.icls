@@ -261,7 +261,7 @@
     <option name="DEFAULT_FUNCTION_CALL" baseAttributes="DEFAULT_IDENTIFIER" />
     <option name="DEFAULT_FUNCTION_DECLARATION">
       <value>
-        <option name="FOREGROUND" value="56a8f5" />
+        <option name="FOREGROUND" value="ebbcba" />
       </value>
     </option>
     <option name="DEFAULT_HIGHLIGHTED_REFERENCE">
