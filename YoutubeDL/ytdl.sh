@@ -71,12 +71,10 @@ File1=$File1New
 File2=$File2New
 
 #Merge Audio and Video with ffmpeg
-#Delete -threads 0 if you have a Single Core CPU
 echo
 echo "Combining Audio and Video files with FFMpeg"
-#ffmpeg -i "$File1" -i "$File2" -sameq -threads 0 "$Out"
-echo "Running ffmpeg -i $File1 -i $File2 -c:v copy -c:a copy $Out"
-ffmpeg -i "$File1" -i "$File2" -c:v copy -c:a copy "$Out"
+echo "Running ffmpeg -i $File1 -i $File2  -map 0:v -map 1:a -c copy $Out"
+ffmpeg -i "$File1" -i "$File2" -map 0:v -map 1:a -c copy "$Out"
 if [[ -f $Out ]]; then
   echo
   echo -e "${GREEN}Created: $Out${COLOR_OFF}"
