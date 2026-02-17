@@ -48,7 +48,7 @@ File1New="video_new.${File1Extension}"
 File2New="audio_new.${File2Extension}"
 
 #Download Video file with First Quality Setting
-yt-dlp -f $Qual1 --output "$File1" $YouTubeUrl
+yt-dlp -f $Qual1 --embed-thumbnail --output "$File1" $YouTubeUrl
 if [[ ! -f $File1 ]]; then
   echo
   echo "Error video file not downloaded"
